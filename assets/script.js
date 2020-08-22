@@ -5,9 +5,9 @@ var Calendar = new Calendar('#calendar', {
     defaultView: 'month',
     taskView: true,
     template: {
-      monthDayname: function(dayname) {
-        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
-      }
+        monthDayname: function (dayname) {
+            return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+        }
     }
 });
 
@@ -33,3 +33,10 @@ Calendar.createSchedules([
         isReadOnly: true    // schedule is read-only
     }
 ]);
+
+$.ajax({
+    url: "https://api.rawg.io/api/games?dates=2019-10-10,2020-10-10&ordering=-added",
+    method: "GET"
+}).then(function (response) {
+console.log(response);
+});
