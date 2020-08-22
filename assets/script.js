@@ -1,6 +1,7 @@
 var Calendar = tui.Calendar;
 
 var Calendar = new Calendar('#calendar', {
+    isReadOnly: true,
     defaultView: 'month',
     taskView: true,
     template: {
@@ -14,20 +15,21 @@ Calendar.createSchedules([
     {
         id: '1',
         calendarId: '1',
-        title: 'my schedule',
+        title: 'Example Title',
         category: 'time',
         dueDateClass: '',
-        start: '2018-01-18T22:30:00+09:00',
-        end: '2018-01-19T02:30:00+09:00'
+        start: '2020-08-23T22:30:00+09:00',
+        end: '2020-08-24T02:31:00+09:00',
+        isReadOnly: true
     },
     {
         id: '2',
         calendarId: '1',
-        title: 'second schedule',
+        title: 'Example Release',
         category: 'time',
         dueDateClass: '',
-        start: '2018-01-18T17:30:00+09:00',
-        end: '2018-01-19T17:31:00+09:00',
+        start: '2020-08-30T17:30:00+09:00',
+        end: '2020-08-31T07:31:00+09:00',
         isReadOnly: true    // schedule is read-only
     }
 ]);
