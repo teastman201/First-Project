@@ -1,0 +1,38 @@
+body {
+    background-image: url("fp-bg-demo.png");
+    background-color: #cccccc;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    text-align: center
+  
+  };
+
+
+  #calendar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    top: 64px;
+}
+
+
+.footer {
+  padding: 30px;
+  clear: both;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+.title is-1 {
+  text-decoration-color: white;
+  text-emphasis-style: bold;
+}
+
+.hero-body {
+  font-size: xx-large;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+ 
+}
