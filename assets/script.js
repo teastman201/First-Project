@@ -38,12 +38,29 @@ $.ajax({
                 end: releaseDate + 'T02:31:00+09:00',
             }
         ]);
+
         Calendar.updateSchedule(i+1, i+1, {
             title: releaseTitle,
             start: releaseDate + 'T22:00:00+09:00',
             end: releaseDate + 'T23:59:00+09:00',
         });
+
+        console.log(response.results[i].background_image);
+        
+       
     }
+    var responseReleaseImage = response.results[0].background_image;
+    var responseReleaseName = response.results[0].name;
+    var responseImageVideo = response.results[0].clip.clip;
+    $(".releaseImage1").attr("src", responseReleaseImage);
+    $(".releaseVideoLink").attr("src", responseImageVideo);
+    $(".title1").text(responseReleaseName);
+    $(".releaseVideoLink").addEventListener("mouseover", myScript);
+
+    
+
+
+
 });
 
 
