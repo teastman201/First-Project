@@ -1,11 +1,11 @@
 var Calendar = tui.Calendar;
 var releaseTitle = "";
 var releaseDate = "";
-// tristan-branch additions #15
+ 
 // Variables for video mouseover action
 var figure = $(".video");
 var vid = figure.find("video");
-// tristan-branch additions #15
+ 
 var resultArray = [];
 
 
@@ -55,7 +55,7 @@ $.ajax({
         
     }
 
-     // tristan-branch additions #15
+      
     // Used to grab images from RAWR API
     var responseReleaseImage = response.results[0].background_image;
     // Grabs game name from RAWR API
@@ -63,7 +63,7 @@ $.ajax({
     // Grabs video from RAWR API
     var responseImageVideo = response.results[0].clip.clip;
     // Updates HTML element with RAWR API image data
-    // tristan-branch additions #15
+     
     console.log(resultArray);
 
     var randItem = Math.floor(Math.random()*response.results.length);
@@ -78,28 +78,41 @@ $.ajax({
     // Updates HTML element text area with RAWR API data
     $(".title1").text(responseReleaseName);
 
-    
+    // This needs to be in here because the images are here. 
+    function switchImage() { 
+        var img = new Image(); 
+        img.src =  responseReleaseImage; 
+        document.getElementById('img').appendChild(img); 
+        down.innerHTML = "Image Element Added.";  
+    }  
+
 
 });
-// tristan-branch additions #15
+ 
+// Mouseover doesn't work inside the ajax call but .
+
 // Functions for mouseover action
 [].forEach.call(figure, function (item, index) {
     item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
-    item.addEventListener('mouseout', hideVideo.bind(item, index), false);
-// tristan-branch additions #15
+    item.addEventListener('mouseout', hideVideo.bind(item, index), false); 
     
-
-
 });
-// tristan-branch additions #15
+
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
     vid[index].play();
+    document.getElementById("video").muted = true;           
 }
+
+
 // Function to start the play on mouseover
 function hideVideo(index, e) {
-    vid[index].pause();
+    vid[index].pause();    
+    // switchImage;    
 }
-// tristan-branch additions #15
+
+
+          
+        
 
 
