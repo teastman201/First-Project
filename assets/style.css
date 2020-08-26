@@ -1,44 +1,44 @@
 body {
-    background-image: url("fp-bg-final-edit.png");
-    background-color: #cccccc;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    text-align: center;
-    background-attachment: fixed;
-    font-family: 'Roboto Condensed', sans-serif;
-  
-  };
+  background-image: url("fp-bg-final-edit.png");
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  background-attachment: fixed;
+  font-family: 'Roboto Condensed', sans-serif;
+
+};
 
 
-  #calendar {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 5px;
-    top: 64px;
+#calendar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  top: 64px;
 }
 
 
 .footer {
-  padding: 30px;
-  clear: both;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  text-align: center;
+padding: 30px;
+clear: both;
+font-family: 'Krona One', sans-serif;
+text-align: center;
 }
 
 .title is-1 {
-  text-decoration-color: white;
-  text-emphasis-style: bold;
+text-decoration-color: white;
+text-emphasis-style: bold;
 }
 
 .hero-body {
-  font-size: xx-large;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: xx-large;
+font-family:'Krona One', sans-serif;
 
- 
+
 }
 
 h1, h2, h3 {
-  font-family: 'Krona One', sans-serif;
+font-family: 'Krona One', sans-serif;
 }
