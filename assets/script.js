@@ -1,7 +1,13 @@
 var Calendar = tui.Calendar;
 var releaseTitle = "";
 var releaseDate = "";
+// tristan-branch additions #15
+// Variables for video mouseover action
+var figure = $(".video");
+var vid = figure.find("video");
+// tristan-branch additions #15
 var resultArray = [];
+
 
 
 var Calendar = new Calendar('#calendar', {
@@ -15,6 +21,7 @@ var Calendar = new Calendar('#calendar', {
     }
 });
 
+// Ajax call to RAWR API for game data
 $.ajax({
     url: "https://api.rawg.io/api/games?dates=2020-08-01,2020-08-31&ordering=-added",
     method: "GET"
@@ -48,6 +55,15 @@ $.ajax({
         
     }
 
+     // tristan-branch additions #15
+    // Used to grab images from RAWR API
+    var responseReleaseImage = response.results[0].background_image;
+    // Grabs game name from RAWR API
+    var responseReleaseName = response.results[0].name;
+    // Grabs video from RAWR API
+    var responseImageVideo = response.results[0].clip.clip;
+    // Updates HTML element with RAWR API image data
+    // tristan-branch additions #15
     console.log(resultArray);
 
     var randItem = Math.floor(Math.random()*response.results.length);
@@ -55,12 +71,35 @@ $.ajax({
     var responseReleaseImage = response.results[randItem].background_image;
     var responseReleaseName = response.results[randItem].name;
     var responseImageVideo = response.results[randItem].clip.clip;
+
     $(".releaseImage1").attr("src", responseReleaseImage);
+    // Updates HTML element with RAWR API video data
     $(".releaseVideoLink").attr("src", responseImageVideo);
+    // Updates HTML element text area with RAWR API data
     $(".title1").text(responseReleaseName);
-    //$(".releaseVideoLink").addEventListener("mouseover", myScript);
+
+    
 
 });
+// tristan-branch additions #15
+// Functions for mouseover action
+[].forEach.call(figure, function (item, index) {
+    item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
+    item.addEventListener('mouseout', hideVideo.bind(item, index), false);
+// tristan-branch additions #15
+    
 
+
+});
+// tristan-branch additions #15
+// Function to start the play on mouseover
+function hoverVideo(index, e) {
+    vid[index].play();
+}
+// Function to start the play on mouseover
+function hideVideo(index, e) {
+    vid[index].pause();
+}
+// tristan-branch additions #15
 
 
