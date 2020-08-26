@@ -1,10 +1,12 @@
 body {
-    background-image: url("fp-bg-demo.png");
+    background-image: url("fp-bg-final-edit.png");
     background-color: #cccccc;
     background-position: center;
     background-size: cover;
     position: relative;
-    text-align: center
+    text-align: center;
+    background-attachment: fixed;
+    font-family: 'Roboto Condensed', sans-serif;
   
   };
 
@@ -35,4 +37,8 @@ body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
  
+}
+
+h1, h2, h3 {
+  font-family: 'Krona One', sans-serif;
 }
