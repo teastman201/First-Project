@@ -7,6 +7,9 @@ var figure = $(".video");
 var vid = figure.find("video");
 // tristan-branch additions #15
 var resultArray = [];
+var currentDate = "";
+var featuredDStart = "";
+var featuredDEnd = "";
 
 
 
@@ -103,3 +106,10 @@ function hideVideo(index, e) {
 // tristan-branch additions #15
 
 
+function getDate()
+{
+currentDate = moment().format("YYYY-MM-DD");
+console.log(currentDate);
+}
+
+getDate();
