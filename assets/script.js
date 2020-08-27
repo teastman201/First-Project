@@ -7,9 +7,15 @@ var figure = $(".video");
 var vid = figure.find("video");
  
 var resultArray = [];
+var monthStart = "";
+var monthEnd = "";
+
 var currentDate = "";
-var featuredDStart = "";
-var featuredDEnd = "";
+var featDStart = "";
+var featDEnd = "";
+var popDStart = "";
+var popDEnd = "";
+var recentDEnd = "";
 
 
 
@@ -24,9 +30,19 @@ var Calendar = new Calendar('#calendar', {
     }
 });
 
+function getMonth()
+{
+    monthStart = moment().startOf("month").format("YYYY-MM-DD");
+    monthEnd = moment().endOf("month").format("YYYY-MM-DD");
+    console.log("MonthStart: " + monthStart);
+    console.log("MonthEnd: " + monthEnd);
+}
+
+getMonth();
+
 // Ajax call to RAWR API for game data
 $.ajax({
-    url: "https://api.rawg.io/api/games?dates=2020-08-01,2020-08-31&ordering=-added",
+    url: "https://api.rawg.io/api/games?dates="+monthStart+","+monthEnd+"&ordering=-added",
     method: "GET"
 }).then(function (response) {
 
@@ -115,14 +131,35 @@ function hideVideo(index, e) {
 }
 
 
-          
-        
-
-
 function getDate()
 {
 currentDate = moment().format("YYYY-MM-DD");
 console.log(currentDate);
 }
 
+function getFeatParams()
+{
+    featDStart = moment().subtract(3,"days").format("YYYY-MM-DD");
+    console.log("FeaturedStart: " + featDStart);
+    featDEnd = moment().add(3,"days").format("YYYY-MM-DD");
+    console.log("FeaturedEnd: " + featDEnd);
+}
+
+function getPopParams()
+{
+    popDStart = moment().subtract(15,"days").format("YYYY-MM-DD");
+    console.log("PopularStart: " + popDStart);
+    popDEnd = moment().add(15,"days").format("YYYY-MM-DD");
+    console.log("PopularEnd: " + popDEnd);
+}
+
+function getRecentParams()
+{
+    recentDEnd = moment().add(7,"days").format("YYYY-MM-DD");
+    console.log("RecentEnd: " + recentDEnd);
+}
+
 getDate();
+getFeatParams();
+getPopParams();
+getRecentParams();
