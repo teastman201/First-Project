@@ -248,25 +248,7 @@ getDate();
 getFeatParams();
 //getPopParams();
 getRecentParams();
-<<<<<<< HEAD
-populateRecent();
-
-// $('.carousel').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     arrows: false,
-//     fade: true,
-//     asNavFor: '.slider-nav'
-//   });
-//   $('.carousel').slick({
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     asNavFor: '.slider-for',
-//     dots: true,
-//     centerMode: true,
-//     focusOnSelect: true
-//   });
-
+populateRecent(recentDStart,currentDate);
 
 $(".carousel").slick({
 
@@ -297,6 +279,3 @@ $(".carousel").slick({
   
       }]
   });
-=======
-populateRecent(recentDStart,currentDate);
->>>>>>> 91d21d97656db43e66fe404f8fc7b1b98baca729
