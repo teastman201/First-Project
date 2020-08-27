@@ -131,6 +131,16 @@ function hideVideo(index, e) {
 }
 
 
+var currentDate = "";
+var featDStart = "";
+var featDEnd = "";
+var popDStart = "";
+var popDEnd = "";
+var recentDStart = "";
+
+var cacheArray = [];
+
+
 function getDate()
 {
 currentDate = moment().format("YYYY-MM-DD");
@@ -139,9 +149,9 @@ console.log(currentDate);
 
 function getFeatParams()
 {
-    featDStart = moment().subtract(3,"days").format("YYYY-MM-DD");
+    featDStart = moment().subtract(7,"days").format("YYYY-MM-DD");
     console.log("FeaturedStart: " + featDStart);
-    featDEnd = moment().add(3,"days").format("YYYY-MM-DD");
+    featDEnd = moment().add(7,"days").format("YYYY-MM-DD");
     console.log("FeaturedEnd: " + featDEnd);
 }
 
@@ -155,11 +165,55 @@ function getPopParams()
 
 function getRecentParams()
 {
-    recentDEnd = moment().add(7,"days").format("YYYY-MM-DD");
-    console.log("RecentEnd: " + recentDEnd);
+    recentDStart = moment().subtract(7,"days").format("YYYY-MM-DD");
+    console.log("RecentStart: " + recentDStart);
 }
+
+function getResultsCache(start,end)
+{
+    var queryURL = "https://api.rawg.io/api/games?dates="+start+","+end+"&ordering=-added"
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(response);
+
+        for(var i = 0;i<response.results.length;i++)
+        {
+            cacheArray.push(response.results[i]);
+        }
+
+        console.log(cacheArray);
+    });
+}
+
+function populateRecent()
+{
+    getResultsCache(recentDStart,currentDate);
+
+    var randItem = Math.floor(Math.random()*cacheArray.length);
+    console.log(randItem);
+    var responseReleaseImage = cacheArray[randItem].background_image;
+    var responseReleaseName = cacheArray[randItem].name;
+
+    $(".releaseImage1").attr("src", responseReleaseImage);
+    $(".title1").text(responseReleaseName);
+
+    var randItem2 = Math.floor(Math.random()*cacheArray.length);
+    console.log(randItem2);
+    var responseReleaseImage2 = cacheArray[randItem2].background_image;
+    var responseReleaseName2 = cacheArray[randItem2].name;
+
+    $(".releaseImage2").attr("src", responseReleaseImage2);
+    $(".title2").text(responseReleaseName2);
+}
+
+
 
 getDate();
 getFeatParams();
-getPopParams();
+//getPopParams();
 getRecentParams();
+populateRecent();
