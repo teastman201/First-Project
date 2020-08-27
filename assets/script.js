@@ -83,18 +83,6 @@ $.ajax({
      
     console.log(resultArray);
 
-    var randItem = Math.floor(Math.random()*response.results.length);
-    console.log(randItem);
-    var responseReleaseImage = response.results[randItem].background_image;
-    var responseReleaseName = response.results[randItem].name;
-    var responseImageVideo = response.results[randItem].clip.clip;
-
-    $(".releaseImage1").attr("src", responseReleaseImage);
-    // Updates HTML element with RAWR API video data
-    $(".releaseVideoLink").attr("src", responseImageVideo);
-    // Updates HTML element text area with RAWR API data
-    $(".title1").text(responseReleaseName);
-
     // This needs to be in here because the images are here. 
     function switchImage() { 
         var img = new Image(); 
@@ -132,8 +120,7 @@ function hideVideo(index, e) {
 var currentDate = "";
 var featDStart = "";
 var featDEnd = "";
-var popDStart = "";
-var popDEnd = "";
+var antiDEnd = "";
 var recentDStart = "";
 
 var cacheArray = [];
@@ -153,12 +140,10 @@ function getFeatParams()
     console.log("FeaturedEnd: " + featDEnd);
 }
 
-function getPopParams()
+function getAntiParams()
 {
-    popDStart = moment().subtract(15,"days").format("YYYY-MM-DD");
-    console.log("PopularStart: " + popDStart);
-    popDEnd = moment().add(15,"days").format("YYYY-MM-DD");
-    console.log("PopularEnd: " + popDEnd);
+    antiDEnd = moment().add(7,"days").format("YYYY-MM-DD");
+    console.log("AnticipatedEnd: " + antiDEnd);
 }
 
 function getRecentParams()
@@ -177,6 +162,8 @@ function populateRecent(start,end)
         method: "GET"
     }).then(function (response) {
 
+        cacheArray.length = 0;
+
         console.log(response);
 
         for(var i = 0;i<response.results.length;i++)
@@ -205,7 +192,7 @@ function populateRecent(start,end)
     });
 }
 
-function populateRecent(start,end)
+function populateAnticipated(start,end)
 {
     //ajax call
     var queryURL = "https://api.rawg.io/api/games?dates="+start+","+end+"&ordering=-added"
@@ -215,6 +202,8 @@ function populateRecent(start,end)
         method: "GET"
     }).then(function (response) {
 
+        cacheArray.length = 0;
+
         console.log(response);
 
         for(var i = 0;i<response.results.length;i++)
@@ -225,57 +214,24 @@ function populateRecent(start,end)
         console.log(cacheArray);
 
         //specific functions
-        var randItem = Math.floor(Math.random()*cacheArray.length);
-        console.log(randItem);
-        var responseReleaseImage = cacheArray[randItem].background_image;
-        var responseReleaseName = cacheArray[randItem].name;
+        var responseReleaseImage = cacheArray[0].background_image;
+        var responseReleaseName = cacheArray[0].name;
     
-        $(".releaseImage1").attr("src", responseReleaseImage);
-        $(".title1").text(responseReleaseName);
+        $(".releaseImage3").attr("src", responseReleaseImage);
+        $(".title3").text(responseReleaseName);
+
+        var responseReleaseImage2 = cacheArray[1].background_image;
+        var responseReleaseName2 = cacheArray[1].name;
     
-        var randItem2 = Math.floor(Math.random()*cacheArray.length);
-        console.log(randItem2);
-        var responseReleaseImage2 = cacheArray[randItem2].background_image;
-        var responseReleaseName2 = cacheArray[randItem2].name;
-    
-        $(".releaseImage2").attr("src", responseReleaseImage2);
-        $(".title2").text(responseReleaseName2);
+        $(".releaseImage4").attr("src", responseReleaseImage2);
+        $(".title4").text(responseReleaseName2);
     });
 }
 
 
 getDate();
 getFeatParams();
-//getPopParams();
+getAntiParams();
 getRecentParams();
 populateRecent(recentDStart,currentDate);
-
-$(".carousel").slick({
-
-    // normal options...
-    infinite: false,
-  
-    // the magic
-    responsive: [{
-  
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          infinite: true
-        }
-  
-      }, {
-  
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          dots: true
-        }
-  
-      }, {
-  
-        breakpoint: 300,
-        settings: "unslick" // destroys slick
-  
-      }]
-  });
+populateAnticipated(currentDate,antiDEnd);
