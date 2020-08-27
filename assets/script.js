@@ -10,14 +10,6 @@ var resultArray = [];
 var monthStart = "";
 var monthEnd = "";
 
-var currentDate = "";
-var featDStart = "";
-var featDEnd = "";
-var popDStart = "";
-var popDEnd = "";
-var recentDEnd = "";
-
-
 
 var Calendar = new Calendar('#calendar', {
     isReadOnly: true,
@@ -111,11 +103,11 @@ $.ajax({
 // Mouseover doesn't work inside the ajax call but .
 
 // Functions for mouseover action
-[].forEach.call(figure, function (item, index) {
-    item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
-    item.addEventListener('mouseout', hideVideo.bind(item, index), false); 
+//[].forEach.call(figure, function (item, index) {
+//    item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
+//    item.addEventListener('mouseout', hideVideo.bind(item, index), false); 
     
-});
+//});
 
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
@@ -130,7 +122,7 @@ function hideVideo(index, e) {
     // switchImage;    
 }
 
-
+//Population functions
 var currentDate = "";
 var featDStart = "";
 var featDEnd = "";
@@ -169,8 +161,9 @@ function getRecentParams()
     console.log("RecentStart: " + recentDStart);
 }
 
-function getResultsCache(start,end)
+function populateRecent(start,end)
 {
+    //ajax call
     var queryURL = "https://api.rawg.io/api/games?dates="+start+","+end+"&ordering=-added"
 
     $.ajax({
@@ -186,34 +179,67 @@ function getResultsCache(start,end)
         }
 
         console.log(cacheArray);
+
+        //specific functions
+        var randItem = Math.floor(Math.random()*cacheArray.length);
+        console.log(randItem);
+        var responseReleaseImage = cacheArray[randItem].background_image;
+        var responseReleaseName = cacheArray[randItem].name;
+    
+        $(".releaseImage1").attr("src", responseReleaseImage);
+        $(".title1").text(responseReleaseName);
+    
+        var randItem2 = Math.floor(Math.random()*cacheArray.length);
+        console.log(randItem2);
+        var responseReleaseImage2 = cacheArray[randItem2].background_image;
+        var responseReleaseName2 = cacheArray[randItem2].name;
+    
+        $(".releaseImage2").attr("src", responseReleaseImage2);
+        $(".title2").text(responseReleaseName2);
     });
 }
 
-function populateRecent()
+function populateRecent(start,end)
 {
-    getResultsCache(recentDStart,currentDate);
+    //ajax call
+    var queryURL = "https://api.rawg.io/api/games?dates="+start+","+end+"&ordering=-added"
 
-    var randItem = Math.floor(Math.random()*cacheArray.length);
-    console.log(randItem);
-    var responseReleaseImage = cacheArray[randItem].background_image;
-    var responseReleaseName = cacheArray[randItem].name;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-    $(".releaseImage1").attr("src", responseReleaseImage);
-    $(".title1").text(responseReleaseName);
+        console.log(response);
 
-    var randItem2 = Math.floor(Math.random()*cacheArray.length);
-    console.log(randItem2);
-    var responseReleaseImage2 = cacheArray[randItem2].background_image;
-    var responseReleaseName2 = cacheArray[randItem2].name;
+        for(var i = 0;i<response.results.length;i++)
+        {
+            cacheArray.push(response.results[i]);
+        }
 
-    $(".releaseImage2").attr("src", responseReleaseImage2);
-    $(".title2").text(responseReleaseName2);
+        console.log(cacheArray);
+
+        //specific functions
+        var randItem = Math.floor(Math.random()*cacheArray.length);
+        console.log(randItem);
+        var responseReleaseImage = cacheArray[randItem].background_image;
+        var responseReleaseName = cacheArray[randItem].name;
+    
+        $(".releaseImage1").attr("src", responseReleaseImage);
+        $(".title1").text(responseReleaseName);
+    
+        var randItem2 = Math.floor(Math.random()*cacheArray.length);
+        console.log(randItem2);
+        var responseReleaseImage2 = cacheArray[randItem2].background_image;
+        var responseReleaseName2 = cacheArray[randItem2].name;
+    
+        $(".releaseImage2").attr("src", responseReleaseImage2);
+        $(".title2").text(responseReleaseName2);
+    });
 }
-
 
 
 getDate();
 getFeatParams();
 //getPopParams();
 getRecentParams();
-populateRecent();
+populateRecent(recentDStart,currentDate);
