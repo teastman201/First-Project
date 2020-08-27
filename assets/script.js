@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $('.carousel').slick({
+      
+    });
+  });
+
 var Calendar = tui.Calendar;
 var releaseTitle = "";
 var releaseDate = "";
@@ -217,3 +223,50 @@ getFeatParams();
 //getPopParams();
 getRecentParams();
 populateRecent();
+
+// $('.carousel').slick({
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     arrows: false,
+//     fade: true,
+//     asNavFor: '.slider-nav'
+//   });
+//   $('.carousel').slick({
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     asNavFor: '.slider-for',
+//     dots: true,
+//     centerMode: true,
+//     focusOnSelect: true
+//   });
+
+
+$(".carousel").slick({
+
+    // normal options...
+    infinite: false,
+  
+    // the magic
+    responsive: [{
+  
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true
+        }
+  
+      }, {
+  
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          dots: true
+        }
+  
+      }, {
+  
+        breakpoint: 300,
+        settings: "unslick" // destroys slick
+  
+      }]
+  });
