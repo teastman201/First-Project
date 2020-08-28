@@ -195,6 +195,8 @@ function populateRecent(start,end)
         method: "GET"
     }).then(function (response) {
 
+        console.log("Populating Recent...");
+
         cacheArray.length = 0;
 
         console.log(response);
@@ -222,49 +224,6 @@ function populateRecent(start,end)
     
         $(".releaseImage2").attr("src", responseReleaseImage2);
         $(".title2").text(responseReleaseName2);
-
-        var featuredRandom1 = Math.floor(Math.random()*cacheArray.length);
-        console.log(featuredRandom1);
-        var featuredImage1 = cacheArray[featuredRandom1].background_image;
-        var featuredName1 = cacheArray[featuredRandom1].name;
-    
-        $(".featuredImage1").attr("src", featuredImage1);
-        $(".featuredTitle1").text(featuredName1);
-
-        var featuredRandom2 = Math.floor(Math.random()*cacheArray.length);
-        console.log(featuredRandom2);
-        var featuredImage2 = cacheArray[featuredRandom2].background_image;
-        var featuredName2 = cacheArray[featuredRandom2].name;
-    
-        $(".featuredImage2").attr("src", featuredImage2);
-        $(".featuredTitle2").text(featuredName2);
-
-        var featuredRandom3 = Math.floor(Math.random()*cacheArray.length);
-        console.log(featuredRandom3);
-        var featuredImage3 = cacheArray[featuredRandom3].background_image;
-        var featuredName3 = cacheArray[featuredRandom3].name;
-    
-        $(".featuredImage3").attr("src", featuredImage3);
-        $(".featuredTitle3").text(featuredName3);
-
-        var featuredRandom4 = Math.floor(Math.random()*cacheArray.length);
-        console.log(featuredRandom4);
-        var featuredImage4 = cacheArray[featuredRandom4].background_image;
-        var featuredName4 = cacheArray[featuredRandom4].name;
-    
-        $(".featuredImage4").attr("src", featuredImage4);
-        $(".featuredTitle4").text(featuredName4);
-
-        var featuredRandom5 = Math.floor(Math.random()*cacheArray.length);
-        console.log(featuredRandom5);
-        var featuredImage5 = cacheArray[featuredRandom5].background_image;
-        var featuredName5 = cacheArray[featuredRandom5].name;
-    
-        $(".featuredImage5").attr("src", featuredImage5);
-        $(".featuredTitle5").text(featuredName5);
-
-
-
         
     });
 }
@@ -278,6 +237,8 @@ function populateAnticipated(start,end)
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+
+        console.log("Populating Anticipated...");
 
         cacheArray.length = 0;
 
@@ -305,6 +266,77 @@ function populateAnticipated(start,end)
     });
 }
 
+function populateFeatured(start,end)
+{
+        //ajax call
+        var queryURL = "https://api.rawg.io/api/games?dates="+start+","+end+"&ordering=-added"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+
+            console.log("Populating Featured...");
+
+            cacheArray.length = 0;
+
+            console.log(response);
+    
+            for(var i = 0;i<response.results.length;i++)
+            {
+                cacheArray.push(response.results[i]);
+            }
+    
+            console.log(cacheArray);
+
+            //specific functions
+            var featuredRandom1 = Math.floor(Math.random()*cacheArray.length);
+            console.log(featuredRandom1);
+            var featuredImage1 = cacheArray[featuredRandom1].background_image;
+            var featuredName1 = cacheArray[featuredRandom1].name;
+        
+            $(".featuredImage1").attr("src", featuredImage1);
+            $(".featuredTitle1").text(featuredName1);
+    
+            var featuredRandom2 = Math.floor(Math.random()*cacheArray.length);
+            console.log(featuredRandom2);
+            var featuredImage2 = cacheArray[featuredRandom2].background_image;
+            var featuredName2 = cacheArray[featuredRandom2].name;
+        
+            $(".featuredImage2").attr("src", featuredImage2);
+            $(".featuredTitle2").text(featuredName2);
+    
+            var featuredRandom3 = Math.floor(Math.random()*cacheArray.length);
+            console.log(featuredRandom3);
+            var featuredImage3 = cacheArray[featuredRandom3].background_image;
+            var featuredName3 = cacheArray[featuredRandom3].name;
+        
+            $(".featuredImage3").attr("src", featuredImage3);
+            $(".featuredTitle3").text(featuredName3);
+    
+            var featuredRandom4 = Math.floor(Math.random()*cacheArray.length);
+            console.log(featuredRandom4);
+            var featuredImage4 = cacheArray[featuredRandom4].background_image;
+            var featuredName4 = cacheArray[featuredRandom4].name;
+        
+            $(".featuredImage4").attr("src", featuredImage4);
+            $(".featuredTitle4").text(featuredName4);
+    
+            var featuredRandom5 = Math.floor(Math.random()*cacheArray.length);
+            console.log(featuredRandom5);
+            var featuredImage5 = cacheArray[featuredRandom5].background_image;
+            var featuredName5 = cacheArray[featuredRandom5].name;
+        
+            $(".featuredImage5").attr("src", featuredImage5);
+            $(".featuredTitle5").text(featuredName5);
+    
+    
+    
+            
+        });
+
+};
+
 
 getDate();
 getFeatParams();
@@ -312,3 +344,4 @@ getAntiParams();
 getRecentParams();
 populateRecent(recentDStart,currentDate);
 populateAnticipated(currentDate,antiDEnd);
+populateFeatured(featDStart,featDEnd);
