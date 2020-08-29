@@ -65,8 +65,8 @@ function getMonth()
 {
     monthStart = moment().startOf("month").format("YYYY-MM-DD");
     monthEnd = moment().endOf("month").format("YYYY-MM-DD");
-    console.log("MonthStart: " + monthStart);
-    console.log("MonthEnd: " + monthEnd);
+    // console.log("MonthStart: " + monthStart);
+    // console.log("MonthEnd: " + monthEnd);
 }
 
 getMonth();
@@ -114,7 +114,7 @@ $.ajax({
     var responseImageVideo = response.results[0].clip.clip;
     // Updates HTML element with RAWR API image data
      
-    console.log(resultArray);
+    // console.log(resultArray);
 
     // This needs to be in here because the images are here. 
     function switchImage() { 
@@ -162,27 +162,27 @@ var cacheArray = [];
 function getDate()
 {
 currentDate = moment().format("YYYY-MM-DD");
-console.log(currentDate);
+// console.log(currentDate);
 }
 
 function getFeatParams()
 {
     featDStart = moment().subtract(7,"days").format("YYYY-MM-DD");
-    console.log("FeaturedStart: " + featDStart);
+    // console.log("FeaturedStart: " + featDStart);
     featDEnd = moment().add(7,"days").format("YYYY-MM-DD");
-    console.log("FeaturedEnd: " + featDEnd);
+    // console.log("FeaturedEnd: " + featDEnd);
 }
 
 function getAntiParams()
 {
     antiDEnd = moment().add(7,"days").format("YYYY-MM-DD");
-    console.log("AnticipatedEnd: " + antiDEnd);
+    // console.log("AnticipatedEnd: " + antiDEnd);
 }
 
 function getRecentParams()
 {
     recentDStart = moment().subtract(7,"days").format("YYYY-MM-DD");
-    console.log("RecentStart: " + recentDStart);
+    // console.log("RecentStart: " + recentDStart);
 }
 
 function populateRecent(start,end)
@@ -195,22 +195,22 @@ function populateRecent(start,end)
         method: "GET"
     }).then(function (response) {
 
-        console.log("Populating Recent...");
+        // console.log("Populating Recent...");
 
         cacheArray.length = 0;
 
-        console.log(response);
+        // console.log(response);
 
         for(var i = 0;i<response.results.length;i++)
         {
             cacheArray.push(response.results[i]);
         }
 
-        console.log(cacheArray);
+        // console.log(cacheArray);
 
         //specific functions
         var randItem = Math.floor(Math.random()*cacheArray.length);
-        console.log(randItem);
+        // console.log(randItem);
         var responseReleaseImage = cacheArray[randItem].background_image;
         var responseReleaseName = cacheArray[randItem].name;
     
@@ -218,7 +218,7 @@ function populateRecent(start,end)
         $(".title1").text(responseReleaseName);
     
         var randItem2 = Math.floor(Math.random()*cacheArray.length);
-        console.log(randItem2);
+        // console.log(randItem2);
         var responseReleaseImage2 = cacheArray[randItem2].background_image;
         var responseReleaseName2 = cacheArray[randItem2].name;
     
@@ -238,18 +238,18 @@ function populateAnticipated(start,end)
         method: "GET"
     }).then(function (response) {
 
-        console.log("Populating Anticipated...");
+        // console.log("Populating Anticipated...");
 
         cacheArray.length = 0;
 
-        console.log(response);
+        // console.log(response);
 
         for(var i = 0;i<response.results.length;i++)
         {
             cacheArray.push(response.results[i]);
         }
 
-        console.log(cacheArray);
+        // console.log(cacheArray);
 
         //specific functions
         var responseReleaseImage = cacheArray[0].background_image;
@@ -276,22 +276,22 @@ function populateFeatured(start,end)
             method: "GET"
         }).then(function (response) {
 
-            console.log("Populating Featured...");
+            // console.log("Populating Featured...");
 
             cacheArray.length = 0;
 
-            console.log(response);
+            // console.log(response);
     
             for(var i = 0;i<response.results.length;i++)
             {
                 cacheArray.push(response.results[i]);
             }
     
-            console.log(cacheArray);
+            // console.log(cacheArray);
 
             //specific functions
             var featuredRandom1 = Math.floor(Math.random()*cacheArray.length);
-            console.log(featuredRandom1);
+            // console.log(featuredRandom1);
             var featuredImage1 = cacheArray[featuredRandom1].background_image;
             var featuredName1 = cacheArray[featuredRandom1].name;
         
@@ -299,7 +299,7 @@ function populateFeatured(start,end)
             $(".featuredTitle1").text(featuredName1);
     
             var featuredRandom2 = Math.floor(Math.random()*cacheArray.length);
-            console.log(featuredRandom2);
+            // console.log(featuredRandom2);
             var featuredImage2 = cacheArray[featuredRandom2].background_image;
             var featuredName2 = cacheArray[featuredRandom2].name;
         
@@ -307,7 +307,7 @@ function populateFeatured(start,end)
             $(".featuredTitle2").text(featuredName2);
     
             var featuredRandom3 = Math.floor(Math.random()*cacheArray.length);
-            console.log(featuredRandom3);
+            // console.log(featuredRandom3);
             var featuredImage3 = cacheArray[featuredRandom3].background_image;
             var featuredName3 = cacheArray[featuredRandom3].name;
         
@@ -315,7 +315,7 @@ function populateFeatured(start,end)
             $(".featuredTitle3").text(featuredName3);
     
             var featuredRandom4 = Math.floor(Math.random()*cacheArray.length);
-            console.log(featuredRandom4);
+            // console.log(featuredRandom4);
             var featuredImage4 = cacheArray[featuredRandom4].background_image;
             var featuredName4 = cacheArray[featuredRandom4].name;
         
@@ -323,7 +323,7 @@ function populateFeatured(start,end)
             $(".featuredTitle4").text(featuredName4);
     
             var featuredRandom5 = Math.floor(Math.random()*cacheArray.length);
-            console.log(featuredRandom5);
+            // console.log(featuredRandom5);
             var featuredImage5 = cacheArray[featuredRandom5].background_image;
             var featuredName5 = cacheArray[featuredRandom5].name;
         
@@ -338,6 +338,60 @@ function populateFeatured(start,end)
 };
 
 
+// // Code to get modal working. 
+// document.addEventListener('DOMContentLoaded', function () {
+
+//     // Modals
+
+//     var rootEl = document.documentElement;
+//     // console.log(rootEl);
+//     var allModals = getAll('.modal');
+//     var modalButtons = getAll('.modal-button');
+//     // console.log(modalButtons);
+//     var modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+
+//     if (modalButtons.length > 0) {
+//         modalButtons.forEach(function (el) {
+            
+//             el.on('click', ".modal-button", function () {
+//                 var target = document.getElementById(el.dataset.target);
+//                 rootEl.classList.add('is-clipped');
+//                 target.classList.add('is-active');
+//                 // console.log('was clicked');
+//             });
+//         });
+//     }
+
+//     if (modalCloses.length > 0) {
+//         modalCloses.forEach(function (el) {
+//             el.addEventListener('click', function () {
+//                 closeModals();
+//             });
+//         });
+//     }
+
+//     document.addEventListener('keydown', function (event) {
+//         var e = event || window.event;
+//         if (e.keyCode === 27) {
+//             closeModals();
+//         }
+//     });
+
+//     function closeModals() {
+//         rootEl.classList.remove('is-clipped');
+//         allModals.forEach(function (el) {
+//             el.classList.remove('is-active');
+//         });
+//     }
+
+//     // Functions
+
+//     function getAll(selector) {
+//         return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
+//     }
+// });
+
+
 getDate();
 getFeatParams();
 getAntiParams();
@@ -345,3 +399,13 @@ getRecentParams();
 populateRecent(recentDStart,currentDate);
 populateAnticipated(currentDate,antiDEnd);
 populateFeatured(featDStart,featDEnd);
+
+var refs = {
+    modalEdicion: {
+      open: function() { document.getElementById('modalEdicion').classList.add('is-active');
+      },
+      close:function() { document.getElementById('modalEdicion').classList.remove('is-active');
+                        
+      }
+    }
+  };

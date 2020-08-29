@@ -19,6 +19,11 @@ body {
   top: 64px;
 }
 
+.is-128x128{
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
 
 .footer {
 padding: 30px;
