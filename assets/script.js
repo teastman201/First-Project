@@ -265,12 +265,50 @@ populateRecent(recentDStart,currentDate);
 //populateAnticipated(currentDate,antiDEnd);
 populateFeatured(featDStart,featDEnd);
 
+
+// function open(){
+//     document.getElementById('modalEdicion').classList.add('is-active');
+// }
+
+// function close(){
+    
+// }
 var refs = {
     modalEdicion: {
-      open: function() { document.getElementById('modalEdicion').classList.add('is-active');
-      },
-      close:function() { document.getElementById('modalEdicion').classList.remove('is-active');
+      
+      close:function() { document.getElementById('modalEdicion').classList.remove('is-active') ;
                         
       }
     }
   };
+
+
+  var refs1 = {
+    modalEdicion1: {
+      open: function() { document.getElementById('modalEdicion1').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+  
+
+// Start code to refactor modal to be DRY
+// var active = document.getElementById('modalEdicion').classList.add('is-active');
+// var notActive = document.getElementById('modalEdicion').classList.remove('is-active');
+
+
+// if (!active) {
+//     $(this).on("click", function() {
+//         console.log('this');
+//         document.getElementById('modalEdicion').classList.add('is-active');
+//     }); if (active) {
+//         $(".modal-background").on("click", function() {
+//             document.getElementById('modalEdicion').classList.remove('is-active');
+//         })        
+//     }
+// };
+// End code to refactor modal
+
