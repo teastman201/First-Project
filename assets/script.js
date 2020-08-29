@@ -273,29 +273,83 @@ populateFeatured(featDStart,featDEnd);
 // function close(){
     
 // }
-var refs = {
-    modalEdicion: {
-      open: function() { document.getElementById('modalEdicion').classList.add('is-active') ;
-      
-      },
-      close:function() { document.getElementById('modalEdicion').classList.remove('is-active') ;
-                        
-      }
-    }
-  };
-
-
   var refs1 = {
     modalEdicion1: {
       open: function() { document.getElementById('modalEdicion1').classList.add('is-active') ;
       
       },
-      close:function() { document.getElementById('modalEdicion').classList.remove('is-active') ;
+      close:function() { document.getElementById('modalEdicion1').classList.remove('is-active') ;
                         
       }
     }
   };
   
+  var refs2 = {
+    modalEdicion2: {
+      open: function() { document.getElementById('modalEdicion2').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion2').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
+  var refs3 = {
+    modalEdicion3: {
+      open: function() { document.getElementById('modalEdicion3').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion3').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
+  var refs4 = {
+    modalEdicion4: {
+      open: function() { document.getElementById('modalEdicion4').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion4').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
+  var refs5 = {
+    modalEdicion5: {
+      open: function() { document.getElementById('modalEdicion5').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion5').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
+  var refs6 = {
+    modalEdicion6: {
+      open: function() { document.getElementById('modalEdicion6').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion6').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
+  var refs7 = {
+    modalEdicion7: {
+      open: function() { document.getElementById('modalEdicion7').classList.add('is-active') ;
+      
+      },
+      close:function() { document.getElementById('modalEdicion7').classList.remove('is-active') ;
+                        
+      }
+    }
+  };
+
 
 // Start code to refactor modal to be DRY
 // var active = document.getElementById('modalEdicion').classList.add('is-active');
