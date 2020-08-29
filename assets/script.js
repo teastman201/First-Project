@@ -77,7 +77,7 @@ $.ajax({
     method: "GET"
 }).then(function (response) {
 
-    console.log(response);
+    // console.log(response);
 
     for(var i = 0;i<response.results.length;i++)
     {
