@@ -247,10 +247,20 @@ function populateFeatured(start,end)
                 // console.log(randItem);
                 var responseReleaseImage = response.results[randItem].background_image;
                 var responseReleaseName = response.results[randItem].name;
+                // Variables for video mouseover action
+var figure = $(".video");
+var vid = figure.find("video");
+// May be unnecessary
+var responseImageVideo = response.results[randItem].clip.clip;
             
-                $(".featuredImage"+i).attr("src", responseReleaseImage);
-                $(".featuredTitle"+i).text(responseReleaseName);
-                response.results.splice(randItem,1);
+                // $(".featuredImage"+i).attr("src", responseReleaseImage);
+                do {
+                    $(".featuredImage"+i).attr("src", responseImageVideo);
+                    $(".featuredTitle"+i).text(responseReleaseName);
+                    response.results.splice(randItem,1);
+                  }
+                  while (responseImageVideo == null);
+                
             }
         }
         
