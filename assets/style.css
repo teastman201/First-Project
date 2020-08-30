@@ -19,6 +19,12 @@ body {
   top: 64px;
 }
 
+.video {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .is-128x128{
   padding: 0;
   margin: 0;
