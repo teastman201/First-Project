@@ -239,9 +239,11 @@ function populateFeatured(start, end) {
                 var figure = $(".video");
                 var vid = figure.find("video");
                 // May be unnecessary
-                if (response.results[randItem].clip.clip != null) {
+                if (response.results[randItem].clip != null) {
                     var responseImageVideo = response.results[randItem].clip.clip;
+                    console.log(responseImageVideo);
                 }
+                console.log(response);
                 // if (responseImageVideo == null){
                 //     responseImageVideo;
                 // }
