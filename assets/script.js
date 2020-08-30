@@ -11,32 +11,6 @@ $(document).ready(function () {
 
 });
 
-// Start Unused code to be deleted before presentation
-//   $('.fade').slick({
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     fade: true,
-//     cssEase: 'linear'
-//   });
-
-//   $('.slider-for').slick({
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     arrows: false,
-//     fade: true,
-//     // asNavFor: '.slider-nav'
-//   });
-//   $('.slider-nav').slick({
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     // asNavFor: '.slider-for',
-//     dots: true,
-//     centerMode: true,
-//     focusOnSelect: true
-//   });
-// End Unused code to be deleted before presentation
-
 var Calendar = tui.Calendar;
 var releaseTitle = "";
 var releaseDate = "";
@@ -128,11 +102,11 @@ $.ajax({
 // Mouseover doesn't work inside the ajax call but .
 
 // Functions for mouseover action
-//[].forEach.call(figure, function (item, index) {
-//    item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
-//    item.addEventListener('mouseout', hideVideo.bind(item, index), false); 
+[].forEach.call(figure, function (item, index) {
+   item.addEventListener('mouseover', hoverVideo.bind(item, index), false);
+   item.addEventListener('mouseout', hideVideo.bind(item, index), false); 
 
-//});
+});
 
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
@@ -241,9 +215,9 @@ function populateFeatured(start, end) {
                 // May be unnecessary
                 if (response.results[randItem].clip != null) {
                     var responseImageVideo = response.results[randItem].clip.clip;
-                    console.log(responseImageVideo);
+                    // console.log(responseImageVideo);
                 }
-                console.log(response);
+                // console.log(response);
                 // if (responseImageVideo == null){
                 //     responseImageVideo;
                 // }
@@ -251,11 +225,11 @@ function populateFeatured(start, end) {
 
                 // $(".featuredImage"+i).attr("src", responseReleaseImage);
 
-                
-                    $(".featuredImage" + i).attr("src", responseImageVideo);
-                    $(".featuredTitle" + i).text(responseReleaseName);
-                    response.results.splice(randItem, 1);
-                
+
+                $(".featuredImage" + i).attr("src", responseImageVideo);
+                $(".featuredTitle" + i).text(responseReleaseName);
+                response.results.splice(randItem, 1);
+
 
 
             };
@@ -272,13 +246,7 @@ populateRecent(recentDStart, currentDate);
 populateFeatured(featDStart, featDEnd);
 
 
-// function open(){
-//     document.getElementById('modalEdicion').classList.add('is-active');
-// }
-
-// function close(){
-
-// }
+// Start code for Recently Released click modal popup.
 var refs1 = {
     modalEdicion1: {
         open: function () {
@@ -369,9 +337,9 @@ var refs7 = {
         }
     }
 };
+// End Recently Released modal popup code
 
-
-// Start code to refactor modal to be DRY
+////////// Start code to refactor modal to be DRY
 // var active = document.getElementById('modalEdicion').classList.add('is-active');
 // var notActive = document.getElementById('modalEdicion').classList.remove('is-active');
 
@@ -386,5 +354,67 @@ var refs7 = {
 //         })        
 //     }
 // };
-// End code to refactor modal
+/////////// End code to refactor modal
 
+//////// Start bacon lorem ipsum
+$(document).ready(function () {
+    bacon();
+
+});
+
+function bacon() {
+    {
+
+        $.getJSON('https://baconipsum.com/api/?callback=?',
+            { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' },
+            function (baconGoodness) {
+
+                if (baconGoodness && baconGoodness.length > 0) {
+
+                    for (var i = 0; i < baconGoodness.length; i++)
+                        for (t = 1; t < 8; t++) {
+                            $(".modalDescription" + t).html('');
+                            $(".modalDescription" + t).append('<p>' + baconGoodness[i] + '</p>');
+                            $(".modalDescription" + t).show();
+                        }
+                }
+                console.log('https://baconipsum.com/api/?callback=?',
+                { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '7' });
+            });
+        
+    }
+}
+
+
+////////////////////// Start refactored bacon
+///////////////////////////Refactoring to make each description differnt
+                // function bacon() {
+                //     {
+                //         for (b=1; b < 9; b++) {
+                //         $.getJSON('https://baconipsum.com/api/?callback=?',
+                //             { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' },
+
+                                        
+                        
+                //             function (baconGoodness) {
+                //                 // baconArray.push(baconGoodness[b]);
+                //                 // if (baconGoodness && baconGoodness.length > 0) {
+                                    
+                //                     // for (var i = 0; i < 8; i++) {
+                                    
+                //                     // }
+                //                         // for (t = 1; t < 8; t++) {
+                //                             $(".modalDescription" + b).html('');
+                //                             $(".modalDescription" + b).append('<p>' + baconGoodness[b] + '</p>');
+                //                             $(".modalDescription" + b).show();
+                //                         // }
+                //                 // }
+                                
+                //             });
+                //             // console.log(JSON.parse('https://baconipsum.com/api/?callback=?',
+                //             // { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' }));
+                //     }
+                //     }
+                // }
+////////////////////////////////End refactored bacon    
+//////// End bacon lorem ipsum
