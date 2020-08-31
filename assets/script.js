@@ -226,6 +226,7 @@ function populateAnticipated(start, end) {
             for (var i = 0; i < response.results.length; i++) {
                 cacheArray.push(response.results[i]);
     
+
                 if (i+1 > 0 && i < 4) {
                     var responseReleaseImage = response.results[i].background_image;
                     var responseReleaseName = response.results[i].name;
@@ -243,6 +244,16 @@ function populateAnticipated(start, end) {
                     $(".mosAntTags" + i).text("Genre: " + releaseGenre);
                     $(".mosAntPlatform" + i).text("Platform: " + platform);
                     $(".mosAntStore" + i).text("Retailer: " + store);
+
+                if (i+1 > 0 && i < 5) {
+                    var responseReleaseImage = response.results[i].background_image;
+                    var responseReleaseName = response.results[i].name;
+                    var responseReleaseDate = response.results[i].released;
+    
+                    $(".antiImage" + i).attr("src", responseReleaseImage);
+                    $(".antiT" + i).text(responseReleaseName);
+                    $(".antiD" + i).text(responseReleaseDate);
+
                 }
             }
     
