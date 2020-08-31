@@ -1,4 +1,6 @@
+
 $(document).ready(function () {
+    
     $('.carousel').slick({
         dots: true,
         infinite: true,
@@ -10,6 +12,9 @@ $(document).ready(function () {
     });
 
 });
+
+var quickviews = bulmaQuickview.attach(); // quickviews now contains an array of all Quickview instances
+console.log($(".button"));
 
 var Calendar = tui.Calendar;
 var releaseTitle = "";
@@ -110,6 +115,16 @@ $.ajax({
 
 $("video").prop("volume", 0);
 $("video").prop("controls", false);
+$("video").click(function(){
+    if ($("video").prop("volume")==0)
+    {
+        $("video").prop("volume",1);
+    }
+    else
+    {
+        $("video").prop("volume",0);
+    }
+})
 
 
 // Function to start the play on mouseover
@@ -174,14 +189,65 @@ function populateRecent(start, end) {
                  console.log(randItem);
                 var responseReleaseImage = response.results[randItem].background_image;
                 var responseReleaseName = response.results[randItem].name;
+                var releaseDate = response.results[randItem].released;
+                var releaseGenre = response.results[randItem].genres[0].name;
+                var platform = response.results[randItem].platforms[0].platform.name;
+                var store = response.results[randItem].stores[0].store.name;
 
                 $(".releaseImage" + i).attr("src", responseReleaseImage);
                 $(".title" + i).text(responseReleaseName);
+                $(".relDate" + i).text("Released: " + releaseDate);
+                $(".modalTags" + i).text("Genre: " + releaseGenre);
+                $(".platform" + i).text("Platforms: " + platform);
+                $(".store" + i).text("Retailer: " + store);
+               
+
                 response.results.splice(randItem, 1);
             }
         }
 
     });
+}
+
+function populateAnticipated(start, end) {
+        //ajax call
+        var queryURL = "https://api.rawg.io/api/games?dates=" + start + "," + end + "&ordering=-added"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+    
+             console.log("Populating Anticipated...");
+    
+            cacheArray.length = 0;
+    
+             console.log(response);
+    
+            for (var i = 0; i < response.results.length; i++) {
+                cacheArray.push(response.results[i]);
+    
+                if (i+1 > 0 && i < 4) {
+                    var responseReleaseImage = response.results[i].background_image;
+                    var responseReleaseName = response.results[i].name;
+                    var responseReleaseDate = response.results[i].released;
+                    
+                    var releaseGenre = response.results[i].genres[0].name;
+                    var platform = response.results[i].platforms[0].platform.name;
+                    var store = response.results[i].stores[0].store.name;
+
+    
+                    $(".antiImage" + i).attr("src", responseReleaseImage);
+                    $(".antiT" + i).text(responseReleaseName);
+                    $(".antiD" + i).text("Anticipated Release: " + responseReleaseDate);
+                                       
+                    $(".mosAntTags" + i).text("Genre: " + releaseGenre);
+                    $(".mosAntPlatform" + i).text("Platform: " + platform);
+                    $(".mosAntStore" + i).text("Retailer: " + store);
+                }
+            }
+    
+        });
 }
 
 function populateFeatured(start, end) {
@@ -193,7 +259,7 @@ function populateFeatured(start, end) {
         method: "GET"
     }).then(function (response) {
 
-        // console.log("Populating Recent...");
+        // console.log("Populating Featured...");
 
         cacheArray.length = 0;
 
@@ -216,27 +282,14 @@ function populateFeatured(start, end) {
                 var vid = figure.find("video");
 
 
-
-                // May be unnecessary
-                var responseImageVideo = response.results[randItem].clip.clip;
-                // console.log(responseImageVideo);
-
-                // console.log(response);
-                // if (responseImageVideo == null){
-                //     responseImageVideo;
-                // }
-
-
-                // $(".featuredImage"+i).attr("src", responseReleaseImage);
-
-
-
                 $(".featuredImage" + i).attr("src", responseReleaseImage);
                 if (response.results[randItem].clip != null) 
                 {
                     $(".featuredImage" + i).attr("src", responseImageVideo);
                 }
                 $(".featuredTitle" + i).text(responseReleaseName);
+                $(".featuredImage" + i).attr("poster", responseReleaseImage);
+
                 response.results.splice(randItem, 1);
 
 
@@ -251,7 +304,7 @@ getFeatParams();
 getAntiParams();
 getRecentParams();
 populateRecent(recentDStart, currentDate);
-//populateAnticipated(currentDate,antiDEnd);
+populateAnticipated(currentDate,antiDEnd);
 populateFeatured(featDStart, featDEnd);
 
 
@@ -347,5 +400,40 @@ var refs7 = {
     }
 };
 
+var refs8 = {
+    antiEdic1: {
+        open: function () {
+            document.getElementById('antiEdic1').classList.add('is-active');
 
+        },
+        close: function () {
+            document.getElementById('antiEdic1').classList.remove('is-active');
+
+        }
+    }
+};
+var refs9 = {
+    antiEdic2: {
+        open: function () {
+            document.getElementById('antiEdic2').classList.add('is-active');
+
+        },
+        close: function () {
+            document.getElementById('antiEdic2').classList.remove('is-active');
+
+        }
+    }
+};
+var refs0 = {
+    antiEdic3: {
+        open: function () {
+            document.getElementById('antiEdic3').classList.add('is-active');
+
+        },
+        close: function () {
+            document.getElementById('antiEdic3').classList.remove('is-active');
+
+        }
+    }
+};
 

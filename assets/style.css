@@ -17,7 +17,7 @@ body {
 
 
 #calendar {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   right: 0;
   bottom: 5px;
@@ -64,3 +64,15 @@ font-family: 'Krona One', sans-serif;
   border-radius: 50%;
 }
 
+.uList {
+  list-style: none;
+}
+
+.modal-content {
+  list-style: none;
+}
+
+ul  {
+  list-style: none;
+}
+}
