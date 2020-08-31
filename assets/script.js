@@ -108,10 +108,11 @@ $.ajax({
 
 });
 
+$("video").prop("volume", 0);
+
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
     vid[index].play();
-    document.getElementById("video").muted = true;
 }
 
 
@@ -133,24 +134,19 @@ var cacheArray = [];
 
 function getDate() {
     currentDate = moment().format("YYYY-MM-DD");
-    // console.log(currentDate);
 }
 
 function getFeatParams() {
     featDStart = moment().subtract(7, "days").format("YYYY-MM-DD");
-    // console.log("FeaturedStart: " + featDStart);
     featDEnd = moment().add(7, "days").format("YYYY-MM-DD");
-    // console.log("FeaturedEnd: " + featDEnd);
 }
 
 function getAntiParams() {
     antiDEnd = moment().add(7, "days").format("YYYY-MM-DD");
-    // console.log("AnticipatedEnd: " + antiDEnd);
 }
 
 function getRecentParams() {
     recentDStart = moment().subtract(7, "days").format("YYYY-MM-DD");
-    // console.log("RecentStart: " + recentDStart);
 }
 
 function populateRecent(start, end) {
@@ -162,18 +158,18 @@ function populateRecent(start, end) {
         method: "GET"
     }).then(function (response) {
 
-        // console.log("Populating Recent...");
+         console.log("Populating Recent...");
 
         cacheArray.length = 0;
 
-        // console.log(response);
+         console.log(response);
 
         for (var i = 0; i < response.results.length; i++) {
             cacheArray.push(response.results[i]);
 
             if (i > 0 && i < 8) {
                 var randItem = Math.floor(Math.random() * response.results.length);
-                // console.log(randItem);
+                 console.log(randItem);
                 var responseReleaseImage = response.results[randItem].background_image;
                 var responseReleaseName = response.results[randItem].name;
 
@@ -213,10 +209,9 @@ function populateFeatured(start, end) {
                 var figure = $(".video");
                 var vid = figure.find("video");
                 // May be unnecessary
-                if (response.results[randItem].clip != null) {
-                    var responseImageVideo = response.results[randItem].clip.clip;
-                    // console.log(responseImageVideo);
-                }
+                var responseImageVideo = response.results[randItem].clip.clip;
+                // console.log(responseImageVideo);
+
                 // console.log(response);
                 // if (responseImageVideo == null){
                 //     responseImageVideo;
@@ -226,7 +221,11 @@ function populateFeatured(start, end) {
                 // $(".featuredImage"+i).attr("src", responseReleaseImage);
 
 
-                $(".featuredImage" + i).attr("src", responseImageVideo);
+                $(".featuredImage" + i).attr("src", responseReleaseImage);
+                if (response.results[randItem].clip != null) 
+                {
+                    $(".featuredImage" + i).attr("src", responseImageVideo);
+                }
                 $(".featuredTitle" + i).text(responseReleaseName);
                 response.results.splice(randItem, 1);
 
@@ -337,84 +336,3 @@ var refs7 = {
         }
     }
 };
-// End Recently Released modal popup code
-
-////////// Start code to refactor modal to be DRY
-// var active = document.getElementById('modalEdicion').classList.add('is-active');
-// var notActive = document.getElementById('modalEdicion').classList.remove('is-active');
-
-
-// if (!active) {
-//     $(this).on("click", function() {
-//         console.log('this');
-//         document.getElementById('modalEdicion').classList.add('is-active');
-//     }); if (active) {
-//         $(".modal-background").on("click", function() {
-//             document.getElementById('modalEdicion').classList.remove('is-active');
-//         })        
-//     }
-// };
-/////////// End code to refactor modal
-
-//////// Start bacon lorem ipsum
-$(document).ready(function () {
-    bacon();
-
-});
-
-function bacon() {
-    {
-
-        $.getJSON('https://baconipsum.com/api/?callback=?',
-            { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' },
-            function (baconGoodness) {
-
-                if (baconGoodness && baconGoodness.length > 0) {
-
-                    for (var i = 0; i < baconGoodness.length; i++)
-                        for (t = 1; t < 8; t++) {
-                            $(".modalDescription" + t).html('');
-                            $(".modalDescription" + t).append('<p>' + baconGoodness[i] + '</p>');
-                            $(".modalDescription" + t).show();
-                        }
-                }
-                console.log('https://baconipsum.com/api/?callback=?',
-                { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '7' });
-            });
-        
-    }
-}
-
-
-////////////////////// Start refactored bacon
-///////////////////////////Refactoring to make each description differnt
-                // function bacon() {
-                //     {
-                //         for (b=1; b < 9; b++) {
-                //         $.getJSON('https://baconipsum.com/api/?callback=?',
-                //             { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' },
-
-                                        
-                        
-                //             function (baconGoodness) {
-                //                 // baconArray.push(baconGoodness[b]);
-                //                 // if (baconGoodness && baconGoodness.length > 0) {
-                                    
-                //                     // for (var i = 0; i < 8; i++) {
-                                    
-                //                     // }
-                //                         // for (t = 1; t < 8; t++) {
-                //                             $(".modalDescription" + b).html('');
-                //                             $(".modalDescription" + b).append('<p>' + baconGoodness[b] + '</p>');
-                //                             $(".modalDescription" + b).show();
-                //                         // }
-                //                 // }
-                                
-                //             });
-                //             // console.log(JSON.parse('https://baconipsum.com/api/?callback=?',
-                //             // { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' }));
-                //     }
-                //     }
-                // }
-////////////////////////////////End refactored bacon    
-//////// End bacon lorem ipsum
