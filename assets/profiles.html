@@ -5,42 +5,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Profiles and Jokes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="style.css" />
-
+    <title>Game Spotlight</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto+Condensed&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
 
-    <header class="">
-        <h1 class="">Sparkle Ninjas Profiles</h1>
-    </header>
-    <div id="images">
-        <a target="_blank" href="https://github.com/teastman201"> <img
-                src="https://avatars1.githubusercontent.com/u/66699557?s=400&u=11aaae09dd6a6529bfd79b21b0e16dfdc753f0c7&v=4" /></a>
-        <a target="_blank" href="https://github.com/haverab/"> <img
-                src="https://avatars1.githubusercontent.com/u/67609357?s=400&v=4" /></a>
-        <a target="_blank" href="https://github.com/dallisconner"> <img
-                src="https://avatars0.githubusercontent.com/u/67807672?s=400&v=4" /> </a>
+    <section class="hero is-dark has-text-warning-dark is-bold">
 
-    </div>
-    <div id="chuck-jokes"></div>
-    <!-- <button id="chuck-button" >Click Here for a Joke</button> -->
-    <div class="">
-        <p>
-            &copy; <a href="../index.html">2020 Sparkle Ninjas</a>
-        </p>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+        <div class="hero-head">
+            <header class="navbar">
+                <div class="container">
+                    <div id="navbarMenuHeroC" class="">
+                        <div class="navbar-start">
+                            <a class="navbar-item " href="../index.html">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="../index.html#featured">
+                                Featured
+                            </a>
+                            <a class="navbar-item" href="../index.html#recently-released">
+                                Recently Released
+                            </a>
+                            <a class="navbar-item" href="../index.html#gaming-news">
+                                Most Anticipated
+                            </a>
+                            <a class="navbar-item" href="../index.html#this-month">
+                                This Month's Popular Titles
+                            </a>
+                        </div>
+                    </div>
 
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    <div id="navbarMenuHeroC" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="./assets/profiles.html" class="navbar-item is-active">
+                                About Us
+                            </a>
+                            <span class="navbar-item">
+                                <p class="control">
+                                    <a class="bd-tw-button button" data-social-network="Twitter"
+                                        data-social-action="tweet" data-social-target="" target="_blank"
+                                        href="https://twitter.com/intent/tweet?text=Find the newest releases on Game Spotlight!://bulma.io&amp;via=jgthms">
+                                        <span class="icon">
+                                            <i class="fab fa-twitter"></i>
+                                        </span>
+                                        <span>
+                                            Tweet
+                                        </span>
+                                    </a>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+        </div>
+
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 has-text-warning-dark">
+                    Game Spotlight
+                </h1>
+                <h2 class="subtitle">
+                    Life is Short. Buy some Games.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section is-centered is-dark has-text-warning-dark is-vcentered">
+        <div class="container is-vcentered">
+            <div class="tile is-ancestor is-centered">
+                <div class="tile is-12 is-vertical is-parent">
+                    <div class="tile is-child box ">
+                        <div class="content ">
+                            <div class="tile is-ancestor ">                                
+
+                                    <article class="tile is-child box has-background-dark">
+                                        <figure class="image is-4by3 ">
+                                            <a target="_blank" href="https://github.com/teastman201"> 
+                                                <img class="is-rounded"
+                                                    src="https://avatars1.githubusercontent.com/u/66699557?s=400&u=11aaae09dd6a6529bfd79b21b0e16dfdc753f0c7&v=4" />
+                                            </a>
+                                        </figure>
+                                        <p class="title has-text-warning-dark">Tristan</p>
+                                    </article>
+
+
+                                    <article class="tile is-child box has-background-dark">
+                                        <figure class="image is-4by3 is-rounded">
+                                            <a target="_blank" href="https://github.com/haverab/"> 
+                                                <img class="is-rounded" src="https://avatars0.githubusercontent.com/u/67609357?s=400&u=5bb680c7d7a97bcb81e8015ac0787d75408f8b79&v=4" /> </a>
+                                        </figure>
+                                        <p class="title has-text-warning-dark">Allison</p>
+                                    </article>
+
+
+                                    <article class="tile is-child box has-background-dark">
+                                        <figure class="image is-4by3 ">
+                                            <a target="_blank" href="https://github.com/dallisconner"> 
+                                                <img class="is-rounded"
+                                                    src="https://avatars3.githubusercontent.com/u/67807672?s=400&u=bf0393c90a7d50dfcce16ed48918721eee5b732c&v=4" /> </a>
+                                        </figure>
+                                        <p class="title has-text-warning-dark">Dallis</p>
+                                    </article>
+
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="box  ">       
+                <div class="media-content ">
+                    <div class="content">
+                        <div class="subtitle" id="chuck-jokes">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer has-background-dark">
+        <div class="content has-text-centered has-text-warning-dark">
+            <p>
+                Game Spotlight by &copy; <a href="../index.html">2020 Sparkle
+                    Ninjas</a>.
+            </p>
+        </div>
+    </footer>
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="chuckScripts.js"></script>
-</body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"
+        integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./chuckScripts.js"></script>
+    <script src="./script.js"></script>
+
+
+</body>
 
 </html>

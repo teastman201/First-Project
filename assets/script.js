@@ -1,4 +1,6 @@
+
 $(document).ready(function () {
+    
     $('.carousel').slick({
         dots: true,
         infinite: true,
@@ -10,6 +12,8 @@ $(document).ready(function () {
     });
 
 });
+
+
 
 var Calendar = tui.Calendar;
 var releaseTitle = "";
@@ -184,9 +188,19 @@ function populateRecent(start, end) {
                  console.log(randItem);
                 var responseReleaseImage = response.results[randItem].background_image;
                 var responseReleaseName = response.results[randItem].name;
+                var releaseDate = response.results[randItem].released;
+                var releaseGenre = response.results[randItem].genres[0].name;
+                var platform = response.results[randItem].platforms[0].platform.name;
+                var store = response.results[randItem].stores[0].store.name;
 
                 $(".releaseImage" + i).attr("src", responseReleaseImage);
                 $(".title" + i).text(responseReleaseName);
+                $(".relDate" + i).text("Released: " + releaseDate);
+                $(".modalTags" + i).text("Genre: " + releaseGenre);
+                $(".platform" + i).text("Platforms: " + platform);
+                $(".store" + i).text("Retailer: " + store);
+               
+
                 response.results.splice(randItem, 1);
             }
         }
@@ -212,6 +226,25 @@ function populateAnticipated(start, end) {
             for (var i = 0; i < response.results.length; i++) {
                 cacheArray.push(response.results[i]);
     
+
+                if (i+1 > 0 && i < 4) {
+                    var responseReleaseImage = response.results[i].background_image;
+                    var responseReleaseName = response.results[i].name;
+                    var responseReleaseDate = response.results[i].released;
+                    
+                    var releaseGenre = response.results[i].genres[0].name;
+                    var platform = response.results[i].platforms[0].platform.name;
+                    var store = response.results[i].stores[0].store.name;
+
+    
+                    $(".antiImage" + i).attr("src", responseReleaseImage);
+                    $(".antiT" + i).text(responseReleaseName);
+                    $(".antiD" + i).text("Anticipated Release: " + responseReleaseDate);
+                                       
+                    $(".mosAntTags" + i).text("Genre: " + releaseGenre);
+                    $(".mosAntPlatform" + i).text("Platform: " + platform);
+                    $(".mosAntStore" + i).text("Retailer: " + store);
+
                 if (i+1 > 0 && i < 5) {
                     var responseReleaseImage = response.results[i].background_image;
                     var responseReleaseName = response.results[i].name;
@@ -220,6 +253,7 @@ function populateAnticipated(start, end) {
                     $(".antiImage" + i).attr("src", responseReleaseImage);
                     $(".antiT" + i).text(responseReleaseName);
                     $(".antiD" + i).text(responseReleaseDate);
+
                 }
             }
     
@@ -375,3 +409,41 @@ var refs7 = {
         }
     }
 };
+
+var refs8 = {
+    antiEdic1: {
+        open: function () {
+            document.getElementById('antiEdic1').classList.add('is-active');
+
+        },
+        close: function () {
+            document.getElementById('antiEdic1').classList.remove('is-active');
+
+        }
+    }
+};
+var refs9 = {
+    antiEdic2: {
+        open: function () {
+            document.getElementById('antiEdic2').classList.add('is-active');
+
+        },
+        close: function () {
+            document.getElementById('antiEdic2').classList.remove('is-active');
+
+        }
+    }
+};
+var refs0 = {
+    antiEdic3: {
+        open: function () {
+            document.getElementById('antiEdic3').classList.add('is-active');
+
+        },
+        close: function () {
+            document.getElementById('antiEdic3').classList.remove('is-active');
+
+        }
+    }
+};
+

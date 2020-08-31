@@ -10,9 +10,14 @@ body {
 
 };
 
+#images{
+  padding: 25px;
+  margin: 25px;
+}
+
 
 #calendar {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   right: 0;
   bottom: 5px;
@@ -59,3 +64,27 @@ font-family: 'Krona One', sans-serif;
   border-radius: 50%;
 }
 
+.uList {
+  list-style: none;
+}
+
+.modal-content {
+  list-style: none;
+}
+
+ul  {
+  list-style: none;
+}
+
+ul.menu-topmenu li a:hover, ul.menu-topmenu li a:active, ul.menu-topmenu li a:focus {
+  color: red;
+}
+
+a:hover {
+color: gold;
+}
+
+/* .recentGames {
+  padding: 100px;
+  margin: 100px;
+} */
