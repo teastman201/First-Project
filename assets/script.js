@@ -13,8 +13,7 @@ $(document).ready(function () {
 
 });
 
-var quickviews = bulmaQuickview.attach(); // quickviews now contains an array of all Quickview instances
-console.log($(".button"));
+
 
 var Calendar = tui.Calendar;
 var releaseTitle = "";
