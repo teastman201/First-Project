@@ -109,6 +109,7 @@ $.ajax({
 });
 
 $("video").prop("volume", 0);
+$("video").prop("controls", false);
 
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
@@ -205,21 +206,13 @@ function populateFeatured(start, end) {
                 // console.log(randItem);
                 var responseReleaseImage = response.results[randItem].background_image;
                 var responseReleaseName = response.results[randItem].name;
+                if(response.results[randItem].clip != null)
+                {
+                    var responseImageVideo = response.results[randItem].clip.clip;
+                }
                 // Variables for video mouseover action
                 var figure = $(".video");
                 var vid = figure.find("video");
-                // May be unnecessary
-                var responseImageVideo = response.results[randItem].clip.clip;
-                // console.log(responseImageVideo);
-
-                // console.log(response);
-                // if (responseImageVideo == null){
-                //     responseImageVideo;
-                // }
-
-
-                // $(".featuredImage"+i).attr("src", responseReleaseImage);
-
 
                 $(".featuredImage" + i).attr("src", responseReleaseImage);
                 if (response.results[randItem].clip != null) 
