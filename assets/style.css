@@ -10,6 +10,11 @@ body {
 
 };
 
+#images{
+  padding: 25px;
+  margin: 25px;
+}
+
 
 #calendar {
   position: absolute;

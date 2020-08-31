@@ -11,6 +11,8 @@ $(document).ready(function () {
 
 });
 
+// fetch("https://hipsum.co/api/?type=hipster-centric&sentences=3").then(data => {console.log(data)});
+
 var Calendar = tui.Calendar;
 var releaseTitle = "";
 var releaseDate = "";
@@ -44,6 +46,8 @@ function getMonth() {
 
 getMonth();
 
+
+
 // Ajax call to RAWR API for game data
 $.ajax({
     url: "https://api.rawg.io/api/games?dates=" + monthStart + "," + monthEnd + "&ordering=-added",
@@ -55,6 +59,7 @@ $.ajax({
     for (var i = 0; i < response.results.length; i++) {
         releaseTitle = response.results[i].name;
         releaseDate = response.results[i].released;
+       
         Calendar.createSchedules([
             {
                 id: i + 1,
@@ -74,7 +79,7 @@ $.ajax({
         });
 
         resultArray.push(response.results[i]);
-
+       
     }
 
 
@@ -89,17 +94,23 @@ $.ajax({
     // console.log(resultArray);
 
     // This needs to be in here because the images are here. 
-    function switchImage() {
-        var img = new Image();
-        img.src = responseReleaseImage;
-        document.getElementById('img').appendChild(img);
-        down.innerHTML = "Image Element Added.";
-    }
+    // Switch image function t
+    // function switchImage() {
+    //     var img = new Image();
+    //     img.src = responseReleaseImage;
+    //     document.getElementById('img').appendChild(img);
+    //     down.innerHTML = "Image Element Added.";
+    // }
 
 
 });
 
 // Mouseover doesn't work inside the ajax call but .
+
+
+
+
+
 
 // Functions for mouseover action
 [].forEach.call(figure, function (item, index) {
@@ -108,10 +119,12 @@ $.ajax({
 
 });
 
+
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
     vid[index].play();
     document.getElementById("video").muted = true;
+    console.log(document.getElementById("video"));
 }
 
 
@@ -180,6 +193,8 @@ function populateRecent(start, end) {
                 $(".releaseImage" + i).attr("src", responseReleaseImage);
                 $(".title" + i).text(responseReleaseName);
                 response.results.splice(randItem, 1);
+
+                // target
             }
         }
 
@@ -360,10 +375,11 @@ var refs7 = {
 $(document).ready(function () {
     bacon();
 
-});
+
 
 function bacon() {
     {
+
 
         $.getJSON('https://baconipsum.com/api/?callback=?',
             { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '1' },
@@ -373,17 +389,25 @@ function bacon() {
 
                     for (var i = 0; i < baconGoodness.length; i++)
                         for (t = 1; t < 8; t++) {
+                            
                             $(".modalDescription" + t).html('');
                             $(".modalDescription" + t).append('<p>' + baconGoodness[i] + '</p>');
                             $(".modalDescription" + t).show();
                         }
+                        
                 }
-                console.log('https://baconipsum.com/api/?callback=?',
-                { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '7' });
+                
             });
-        
+            console.log('https://baconipsum.com/api/?callback=?',
+    { 'type': 'meat-and-filler', 'start-with-lorem': '1', 'paras': '7' });
+           
+           console.log('test');
     }
+    
 }
+
+});
+
 
 
 ////////////////////// Start refactored bacon
