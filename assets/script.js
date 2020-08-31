@@ -121,6 +121,7 @@ $("video").click(function(){
     }
 })
 
+
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
     vid[index].play();
@@ -255,6 +256,22 @@ function populateFeatured(start, end) {
                 // Variables for video mouseover action
                 var figure = $(".video");
                 var vid = figure.find("video");
+
+
+
+                // May be unnecessary
+                var responseImageVideo = response.results[randItem].clip.clip;
+                // console.log(responseImageVideo);
+
+                // console.log(response);
+                // if (responseImageVideo == null){
+                //     responseImageVideo;
+                // }
+
+
+                // $(".featuredImage"+i).attr("src", responseReleaseImage);
+
+
 
                 $(".featuredImage" + i).attr("src", responseReleaseImage);
                 if (response.results[randItem].clip != null) 
