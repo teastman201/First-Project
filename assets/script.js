@@ -258,21 +258,6 @@ function populateFeatured(start, end) {
                 var vid = figure.find("video");
 
 
-
-                // May be unnecessary
-                var responseImageVideo = response.results[randItem].clip.clip;
-                // console.log(responseImageVideo);
-
-                // console.log(response);
-                // if (responseImageVideo == null){
-                //     responseImageVideo;
-                // }
-
-
-                // $(".featuredImage"+i).attr("src", responseReleaseImage);
-
-
-
                 $(".featuredImage" + i).attr("src", responseReleaseImage);
                 if (response.results[randItem].clip != null) 
                 {
