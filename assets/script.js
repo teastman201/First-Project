@@ -202,7 +202,7 @@ function populateFeatured(start, end) {
         method: "GET"
     }).then(function (response) {
 
-        // console.log("Populating Recent...");
+        // console.log("Populating Featured...");
 
         cacheArray.length = 0;
 
