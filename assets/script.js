@@ -257,7 +257,8 @@ function populateAnticipated(start, end) {
                 }
             }
     
-        });
+        };
+    })
 }
 
 function populateFeatured(start, end) {
