@@ -76,15 +76,17 @@ ul  {
   list-style: none;
 }
 
-ul.menu-topmenu li a:hover, ul.menu-topmenu li a:active, ul.menu-topmenu li a:focus {
-  color: red;
-}
-
 a:hover {
 color: gold;
 }
 
-/* .recentGames {
-  padding: 100px;
-  margin: 100px;
-} */
+.addPadding {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  /* margin: 350px; */
+}
+
+.modal {
+  list-style: none;
+  list-style-type: none;
+}
