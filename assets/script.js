@@ -110,6 +110,16 @@ $.ajax({
 
 $("video").prop("volume", 0);
 $("video").prop("controls", false);
+$("video").click(function(){
+    if ($("video").prop("volume")==0)
+    {
+        $("video").prop("volume",1);
+    }
+    else
+    {
+        $("video").prop("volume",0);
+    }
+})
 
 
 // Function to start the play on mouseover
@@ -184,6 +194,38 @@ function populateRecent(start, end) {
     });
 }
 
+function populateAnticipated(start, end) {
+        //ajax call
+        var queryURL = "https://api.rawg.io/api/games?dates=" + start + "," + end + "&ordering=-added"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+    
+             console.log("Populating Anticipated...");
+    
+            cacheArray.length = 0;
+    
+             console.log(response);
+    
+            for (var i = 0; i < response.results.length; i++) {
+                cacheArray.push(response.results[i]);
+    
+                if (i+1 > 0 && i < 5) {
+                    var responseReleaseImage = response.results[i].background_image;
+                    var responseReleaseName = response.results[i].name;
+                    var responseReleaseDate = response.results[i].released;
+    
+                    $(".antiImage" + i).attr("src", responseReleaseImage);
+                    $(".antiT" + i).text(responseReleaseName);
+                    $(".antiD" + i).text(responseReleaseDate);
+                }
+            }
+    
+        });
+}
+
 function populateFeatured(start, end) {
     //ajax call
     var queryURL = "https://api.rawg.io/api/games?dates=" + start + "," + end + "&ordering=-added"
@@ -193,7 +235,7 @@ function populateFeatured(start, end) {
         method: "GET"
     }).then(function (response) {
 
-        // console.log("Populating Recent...");
+        // console.log("Populating Featured...");
 
         cacheArray.length = 0;
 
@@ -216,27 +258,14 @@ function populateFeatured(start, end) {
                 var vid = figure.find("video");
 
 
-
-                // May be unnecessary
-                var responseImageVideo = response.results[randItem].clip.clip;
-                // console.log(responseImageVideo);
-
-                // console.log(response);
-                // if (responseImageVideo == null){
-                //     responseImageVideo;
-                // }
-
-
-                // $(".featuredImage"+i).attr("src", responseReleaseImage);
-
-
-
                 $(".featuredImage" + i).attr("src", responseReleaseImage);
                 if (response.results[randItem].clip != null) 
                 {
                     $(".featuredImage" + i).attr("src", responseImageVideo);
                 }
                 $(".featuredTitle" + i).text(responseReleaseName);
+                $(".featuredImage" + i).attr("poster", responseReleaseImage);
+
                 response.results.splice(randItem, 1);
 
 
@@ -251,7 +280,7 @@ getFeatParams();
 getAntiParams();
 getRecentParams();
 populateRecent(recentDStart, currentDate);
-//populateAnticipated(currentDate,antiDEnd);
+populateAnticipated(currentDate,antiDEnd);
 populateFeatured(featDStart, featDEnd);
 
 
