@@ -110,6 +110,16 @@ $.ajax({
 
 $("video").prop("volume", 0);
 $("video").prop("controls", false);
+$("video").click(function(){
+    if ($("video").prop("volume")==0)
+    {
+        $("video").prop("volume",1);
+    }
+    else
+    {
+        $("video").prop("volume",0);
+    }
+})
 
 // Function to start the play on mouseover
 function hoverVideo(index, e) {
