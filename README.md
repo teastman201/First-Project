@@ -1,6 +1,6 @@
 # Game Spotlight
 
-## Table of Contentss
+## Table of Contents
 * [Description](#description)
 * [User-Story](#user-story)
 * [Screenshots](#screenshots)
