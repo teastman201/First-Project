@@ -20,17 +20,68 @@
 
 <body>
 
-    <section class="hero is-dark is-bold">
+    <section class="hero is-dark has-text-warning-dark is-bold">
+
+        <div class="hero-head">
+            <header class="navbar">
+                <div class="container">
+
+                    <div id="navbarMenuHeroC" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item is-active">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="#featured">
+                                Featured
+                            </a>
+                            <a class="navbar-item" href="#recently-released">
+                                Recently Released
+                            </a>
+                            <a class="navbar-item" href="#gaming-news">
+                                Gaming News
+                            </a>
+                            <a class="navbar-item" href="#this-month">
+                                This Month's Popular Titles
+                            </a>
+
+                        </div>
+                    </div>
+                    <div id="navbarMenuHeroC" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="./assets/profiles.html" class="navbar-item">
+                                About Us
+                            </a>
+                            <span class="navbar-item">
+                                <p class="control">
+                                    <a class="bd-tw-button button" data-social-network="Twitter"
+                                        data-social-action="tweet" data-social-target="" target="_blank"
+                                        href="https://twitter.com/intent/tweet?text=Check out this new game I found on Game Spotlight!://bulma.io&amp;via=jgthms">
+                                        <span class="icon">
+                                            <i class="fab fa-twitter"></i>
+                                        </span>
+                                        <span>
+                                            Tweet
+                                        </span>
+                                    </a>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
         <div class="hero-body">
             <div class="container">
-                <h1 class="title is-1">
+                <h1 class="title is-1 has-text-warning-dark">
                     Game Spotlight
                 </h1>
                 <h2 class="subtitle">
-                    Primary subtitle
+                    Life is Short, Buy the Game.
                 </h2>
             </div>
         </div>
+
     </section>
 
     <section class="section">
@@ -40,8 +91,10 @@
 
                 <div class="tile is-8 is-vertical is-parent">
                     <div>
-                        <p class=" title">Featured</p>
-                        <div class="carousel  tile is-child box">
+                        <div id="featured" class="tile is-child has-background-dark box">
+                            <p class="title has-text-warning-dark">Featured</p>
+                        </div>
+                        <div class="carousel  tile is-child has-background-dark box">
 
                             <div class="fade content">
                                 <div class=" tile is-ancestor">
@@ -53,7 +106,7 @@
                                                     height="600" controls>
                                                     <source type="video/mp4">
 
-                                                     
+
                                                 </video>
                                             </figure>
 
@@ -68,11 +121,11 @@
                                         <article class=" tile is-child box">
                                             <p class="featuredTitle2 title is-4">Title1</p>
                                             <figure class="video">
-                                            <video id="video" class="releaseVideoLink featuredImage2" width="1024"
-                                                height="600" controls>
-                                                <source type="video/mp4">
-</figure>
-                                                 
+                                                <video id="video" class="releaseVideoLink featuredImage2" width="1024"
+                                                    height="600" controls>
+                                                    <source type="video/mp4">
+                                            </figure>
+
                                             </video>
                                         </article>
                                     </div>
@@ -85,12 +138,12 @@
                                         <article class=" tile is-child box">
                                             <p class="featuredTitle3 title is-4">Title1</p>
                                             <figure class="video">
-                                            <video id="video" class="releaseVideoLink featuredImage3" width="1024"
-                                                height="600" controls>
-                                                <source type="video/mp4">
-                                                 
-                                            </video>
-                                        </figure>
+                                                <video id="video" class="releaseVideoLink featuredImage3" width="1024"
+                                                    height="600" controls>
+                                                    <source type="video/mp4">
+
+                                                </video>
+                                            </figure>
                                         </article>
                                     </div>
                                 </div>
@@ -102,11 +155,11 @@
                                         <article class=" tile is-child box">
                                             <p class="featuredTitle4 title is-4">Title1</p>
                                             <figure class="video">
-                                            <video id="video" class="releaseVideoLink featuredImage4" width="1024"
-                                                height="600" controls>
-                                                <source type="video/mp4">
-                                                 
-                                                </figure>
+                                                <video id="video" class="releaseVideoLink featuredImage4" width="1024"
+                                                    height="600" controls>
+                                                    <source type="video/mp4">
+
+                                            </figure>
                                         </article>
                                     </div>
                                 </div>
@@ -118,12 +171,12 @@
                                         <article class=" tile is-child box">
                                             <p class="featuredTitle5 title is-4">Title1</p>
                                             <figure class="video">
-                                            <video id="video" class="releaseVideoLink featuredImage5" width="1024"
-                                                height="600" controls>
-                                                <source type="video/mp4">
-                                                
-                                            </video>
-                                        </figure>
+                                                <video id="video" class="releaseVideoLink featuredImage5" width="1024"
+                                                    height="600" controls>
+                                                    <source type="video/mp4">
+
+                                                </video>
+                                            </figure>
                                         </article>
                                     </div>
                                 </div>
@@ -133,8 +186,8 @@
                     </div>
                     <br>
 
-                    <div class="tile is-child box">
-                        <p class="title">Gaming News</p>
+                    <div id="gaming-news" class="tile is-child has-background-warning-dark box">
+                        <p class="title has-text-dark">Gaming News</p>
                         <div class="content">
 
                             <div class="tile is-ancestor">
@@ -181,8 +234,8 @@
 
                     </div>
 
-                    <div class="is-4 is-vertical is-8 box">
-                        <p class="title">This Month's Popular Titles</p>
+                    <div id="this-month" class="is-4 is-vertical is-8 has-background-dark box">
+                        <p class="title has-text-warning-dark">This Month's Popular Titles</p>
                         <div>
                             <div id="calendar" style="height: 600px;"></div>
                         </div>
@@ -191,8 +244,8 @@
                 </div>
 
                 <div class="tile is-4 is-vertical is-parent">
-                    <div class="tile is-child box">
-                        <p class="title">Recently Released</p>
+                    <div id="recently-released" class="tile is-child box title has-background-dark">
+                        <p class="title has-text-warning-dark">Recently Released</p>
                         <div class="tile is-child box">
                             <p class="title1 title is-4">Title1</p>
                             <figure class="video img image is-7by8">
@@ -492,13 +545,12 @@
     </section>
 
 
-    <footer class="footer is-dark">
-        <div class="content has-text-centered">
+    <footer class="footer has-background-dark">
+        <div class="content has-text-centered has-text-warning-dark">
             <p>
-                <strong>Game Spotlight</strong> by &copy; <a href="./assets/profiles.html">2020 Sparkle
+                Game Spotlight by &copy; <a href="./assets/profiles.html">2020 Sparkle
                     Ninjas</a>.
             </p>
-            
         </div>
     </footer>
 
