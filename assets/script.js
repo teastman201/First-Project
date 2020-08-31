@@ -193,6 +193,38 @@ function populateRecent(start, end) {
     });
 }
 
+function populateAnticipated(start, end) {
+        //ajax call
+        var queryURL = "https://api.rawg.io/api/games?dates=" + start + "," + end + "&ordering=-added"
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+    
+             console.log("Populating Anticipated...");
+    
+            cacheArray.length = 0;
+    
+             console.log(response);
+    
+            for (var i = 0; i < response.results.length; i++) {
+                cacheArray.push(response.results[i]);
+    
+                if (i+1 > 0 && i < 5) {
+                    var responseReleaseImage = response.results[i].background_image;
+                    var responseReleaseName = response.results[i].name;
+                    var responseReleaseDate = response.results[i].released;
+    
+                    $(".antiImage" + i).attr("src", responseReleaseImage);
+                    $(".antiT" + i).text(responseReleaseName);
+                    $(".antiD" + i).text(responseReleaseDate);
+                }
+            }
+    
+        });
+}
+
 function populateFeatured(start, end) {
     //ajax call
     var queryURL = "https://api.rawg.io/api/games?dates=" + start + "," + end + "&ordering=-added"
@@ -230,6 +262,8 @@ function populateFeatured(start, end) {
                     $(".featuredImage" + i).attr("src", responseImageVideo);
                 }
                 $(".featuredTitle" + i).text(responseReleaseName);
+                $(".featuredImage" + i).attr("poster", responseReleaseImage);
+
                 response.results.splice(randItem, 1);
 
 
@@ -244,7 +278,7 @@ getFeatParams();
 getAntiParams();
 getRecentParams();
 populateRecent(recentDStart, currentDate);
-//populateAnticipated(currentDate,antiDEnd);
+populateAnticipated(currentDate,antiDEnd);
 populateFeatured(featDStart, featDEnd);
 
 
