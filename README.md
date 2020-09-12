@@ -1,4 +1,8 @@
 # Game Spotlight
+## Co-authors & Contact Emails
+* [Allison Haver] (mailto:allisonbhaver@gmail.com>)
+* [Dallis Conner] <>
+* [Tristan Eastman] (mailto: teastman85@gmail.com)
 
 ## Table of Contents
 * [Description](#description)
@@ -10,19 +14,19 @@
 Multi-platform application for sorting, accessing, and purchasing of games with a focus on popularity. 
 
 ## Technologies Used
-jQuery
-moment.min.js
-tui-calendar.js
-tui-code-snippet.min.js
-tui-date-picker.css
-tui-date-picker.js
-tui-time-picker.css
-tui-time-picker.min.js
-fontawesome
-slick.min.js
-slick.css
-slick-theme.css
-bulma.min.css
+* jQuery
+* moment.min.js
+* tui-calendar.js
+* tui-code-snippet.min.js
+* tui-date-picker.css
+* tui-date-picker.js
+* tui-time-picker.css
+* tui-time-picker.min.js
+* fontawesome
+* slick.min.js
+* slick.css
+* slick-theme.css
+* bulma.min.css
 
 ## User Story
 AS A gamer.
