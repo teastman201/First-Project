@@ -1,8 +1,8 @@
 # Game Spotlight
 ## Co-authors & Contact Emails
-* [Allison Haver] (mailto:allisonbhaver@gmail.com>)
+* [Allison Haver](allisonbhaver@gmail.com>)
 * [Dallis Conner] <>
-* [Tristan Eastman] (mailto: teastman85@gmail.com)
+* [Tristan Eastman](teastman85@gmail.com)
 
 ## Table of Contents
 * [Description](#description)
