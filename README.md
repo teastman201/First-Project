@@ -14,19 +14,12 @@
 Multi-platform application for sorting, accessing, and purchasing of games with a focus on popularity. 
 
 ## Technologies Used
-* jQuery
-* moment.min.js
-* tui-calendar.js
-* tui-code-snippet.min.js
-* tui-date-picker.css
-* tui-date-picker.js
-* tui-time-picker.css
-* tui-time-picker.min.js
-* fontawesome
-* slick.min.js
-* slick.css
-* slick-theme.css
-* bulma.min.css
+* [jQuery](https://jquery.com/)
+* [moment.min.js](https://momentjs.com/)
+* [tui-calendar.js](https://ui.toast.com/tui-calendar/)
+* [fontawesome](https://fontawesome.com/)
+* [slick.min.js](http://kenwheeler.github.io/slick/)
+* [bulma.min.css](https://bulma.io/)
 
 ## User Story
 AS A gamer.
