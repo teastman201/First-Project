@@ -1,4 +1,11 @@
 # Game Spotlight
+## Co-authors & Contact Emails
+* Allison Haver Email: allisonbhaver@gmail.com
+* Dallis Conner <>
+* Tristan Eastman Email: teastman85@gmail.com
+
+## License
+* [This project is licensed under the terms of the MIT license.](LICENSE)
 
 ## Table of Contents
 * [Description](#description)
@@ -7,12 +14,23 @@
 * [Link-to-Deployed-Website](#link)
 
 ## Description
-Multi-platform application for sorting, accessing, and purchasing of games with a focus on popularity.
+Multi-platform application for sorting, accessing, and purchasing of games with a focus on popularity. 
+
+## Technologies Used
+* [jQuery](https://jquery.com/)
+* [moment.min.js](https://momentjs.com/)
+* [tui-calendar.js](https://ui.toast.com/tui-calendar/)
+* [fontawesome](https://fontawesome.com/)
+* [slick.min.js](http://kenwheeler.github.io/slick/)
+* [bulma.min.css](https://bulma.io/)
 
 ## User Story
 AS A gamer.
 I WANT a list of popular games from multiple vendors.
 SO THAT I can sort, compare, access, and purchase, ultimately saving money  on the most popular games.
+
+## GIF 
+![gif](https://media.giphy.com/media/H4zX9UeAMQInRf6XSn/giphy.gif)
 
 ## Screenshots
 ![game3](https://user-images.githubusercontent.com/67609357/91758617-4ac4e800-eb9e-11ea-9919-e973c16ae9c7.JPG)
