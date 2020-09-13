@@ -26,6 +26,9 @@ AS A gamer.
 I WANT a list of popular games from multiple vendors.
 SO THAT I can sort, compare, access, and purchase, ultimately saving money  on the most popular games.
 
+## GIF 
+![gif](https://giphy.com/gifs/H4zX9UeAMQInRf6XSn)
+
 ## Screenshots
 ![game3](https://user-images.githubusercontent.com/67609357/91758617-4ac4e800-eb9e-11ea-9919-e973c16ae9c7.JPG)
 
