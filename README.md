@@ -11,7 +11,7 @@
 * [Description](#description)
 * [User-Story](#user-story)
 * [Screenshots](#screenshots)
-* [Link-to-Deployed-Website](#link)
+* [Link-to-Deployed-Website](#Link-to-Deployed-Website)
 
 ## Description
 Multi-platform application for sorting, accessing, and purchasing of games with a focus on popularity. 
